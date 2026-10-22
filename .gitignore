@@ -1,0 +1,3 @@
+
+# Keep the stage 2 dataset local; do not commit CSV data.
+/data/stage_2_data/*.csv

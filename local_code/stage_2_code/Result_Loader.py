@@ -18,14 +18,12 @@ class Result_Loader(result):
     
     def load(self):
         print('loading results...')
-        destination = Path(self.result_destination_file_name)
+        destination_name = Path(self.result_destination_file_name).name
+        if not destination_name.endswith('.pkl'):
+            destination_name += '.pkl'
         if self.fold_count is not None:
-            destination = destination.with_name(
-                f'{destination.stem}_{self.fold_count}{destination.suffix}'
-            )
-        if destination.suffix != '.pkl':
-            destination = destination.with_suffix('.pkl')
-        result_path = Path(self.result_destination_folder_path) / destination
+            destination_name = f'{destination_name[:-4]}_{self.fold_count}.pkl'
+        result_path = Path(self.result_destination_folder_path) / destination_name
         with result_path.open('rb') as f:
             self.data = pickle.load(f)
         return self.data

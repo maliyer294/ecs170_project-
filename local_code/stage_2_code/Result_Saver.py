@@ -20,12 +20,10 @@ class Result_Saver(result):
         print('saving results...')
         destination_folder = Path(self.result_destination_folder_path)
         destination_folder.mkdir(parents=True, exist_ok=True)
-        destination = Path(self.result_destination_file_name)
+        destination_name = Path(self.result_destination_file_name).name
+        if not destination_name.endswith('.pkl'):
+            destination_name += '.pkl'
         if self.fold_count is not None:
-            destination = destination.with_name(
-                f'{destination.stem}_{self.fold_count}{destination.suffix}'
-            )
-        if destination.suffix != '.pkl':
-            destination = destination.with_suffix('.pkl')
-        with (destination_folder / destination).open('wb') as f:
+            destination_name = f'{destination_name[:-4]}_{self.fold_count}.pkl'
+        with (destination_folder / destination_name).open('wb') as f:
             pickle.dump(self.data, f)

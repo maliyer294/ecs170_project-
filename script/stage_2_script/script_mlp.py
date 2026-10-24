@@ -14,6 +14,7 @@ from local_code.stage_2_code.Training_Loss_Plotter import save_training_loss_plo
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_FOLDER = PROJECT_ROOT / 'data' / 'stage_2_data'
 RESULT_FOLDER = PROJECT_ROOT / 'result' / 'stage_2_result'
+EXPERIMENT_TAG = 'adamw_lr3e-4_dropout0.2'
 
 
 def run_experiment(loaded_data, experiment_tag, hidden_sizes):
@@ -63,10 +64,5 @@ if __name__ == '__main__':
     data_obj.dataset_source_folder_path = DATA_FOLDER
     loaded_data = data_obj.load()
 
-    experiments = (
-        ('adam_lr1e-3_784-256-128-10', (256, 128)),
-        ('adam_baseline_lr1e-3_784-128-10', (128,)),
-    )
-    for experiment_tag, hidden_sizes in experiments:
-        print(f'\n=== Running {experiment_tag} ===')
-        run_experiment(loaded_data, experiment_tag, hidden_sizes)
+    print(f'\n=== Running {EXPERIMENT_TAG} with cross-entropy label smoothing ===')
+    run_experiment(loaded_data, EXPERIMENT_TAG, (256, 128))

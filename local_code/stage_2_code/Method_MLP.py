@@ -18,8 +18,10 @@ class Method_MLP(method, nn.Module):
     # it defines the max rounds to train the model
     max_epoch = 20
     # it defines the learning rate for gradient descent based optimizer for model learning
-    learning_rate = 1e-3
+    learning_rate = 3e-4
     batch_size = 128
+    dropout_rate = 0.2
+    label_smoothing = 0.05
 
     # it defines the the MLP model architecture, e.g.,
     # how many layers, size of variables in each layer, activation function, etc.
@@ -30,7 +32,11 @@ class Method_MLP(method, nn.Module):
         layers = []
         input_size = 784
         for hidden_size in hidden_sizes:
-            layers.extend((nn.Linear(input_size, hidden_size), nn.ReLU()))
+            layers.extend((
+                nn.Linear(input_size, hidden_size),
+                nn.ReLU(),
+                nn.Dropout(p=self.dropout_rate),
+            ))
             input_size = hidden_size
         layers.append(nn.Linear(input_size, 10))
         self.network = nn.Sequential(*layers)
@@ -46,8 +52,8 @@ class Method_MLP(method, nn.Module):
     # so we don't need to define the error backpropagation function here
 
     def fit(self, X, y):
-        optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
-        loss_function = nn.CrossEntropyLoss()
+        optimizer = torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
+        loss_function = nn.CrossEntropyLoss(label_smoothing=self.label_smoothing)
         accuracy_evaluator = Evaluate_Accuracy('training evaluator', '')
         self.train_loss_history = []
         train_data = TensorDataset(

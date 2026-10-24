@@ -1,0 +1,11 @@
+metric,average,value
+accuracy,overall,0.9799
+precision,macro,0.9798488084949124
+recall,macro,0.9797020367661581
+f1,macro,0.9797515466955456
+precision,weighted,0.9799699024770021
+recall,weighted,0.9799
+f1,weighted,0.9799112542198561
+precision,micro,0.9799
+recall,micro,0.9799
+f1,micro,0.9799

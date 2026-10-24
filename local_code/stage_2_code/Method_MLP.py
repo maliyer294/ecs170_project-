@@ -24,24 +24,23 @@ class Method_MLP(method, nn.Module):
     # it defines the the MLP model architecture, e.g.,
     # how many layers, size of variables in each layer, activation function, etc.
     # the size of the input/output portal of the model architecture should be consistent with our data input and desired output
-    def __init__(self, mName, mDescription):
+    def __init__(self, mName, mDescription, hidden_sizes=(256, 128)):
         method.__init__(self, mName, mDescription)
         nn.Module.__init__(self)
-        # check here for nn.Linear doc: https://pytorch.org/docs/stable/generated/torch.nn.Linear.html
-        self.fc_layer_1 = nn.Linear(784, 256)
-        self.fc_layer_2 = nn.Linear(256, 128)
-        self.fc_layer_3 = nn.Linear(128, 10)
-        # check here for nn.ReLU doc: https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html
-        self.activation_func_1 = nn.ReLU()
+        layers = []
+        input_size = 784
+        for hidden_size in hidden_sizes:
+            layers.extend((nn.Linear(input_size, hidden_size), nn.ReLU()))
+            input_size = hidden_size
+        layers.append(nn.Linear(input_size, 10))
+        self.network = nn.Sequential(*layers)
 
     # it defines the forward propagation function for input x
     # this function will calculate the output layer by layer
 
     def forward(self, x):
         '''Forward propagation'''
-        h = self.activation_func_1(self.fc_layer_1(x))
-        h = self.activation_func_1(self.fc_layer_2(h))
-        return self.fc_layer_3(h)
+        return self.network(x)
 
     # backward error propagation will be implemented by pytorch automatically
     # so we don't need to define the error backpropagation function here

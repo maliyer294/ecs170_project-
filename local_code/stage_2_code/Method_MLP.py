@@ -53,6 +53,7 @@ class Method_MLP(method, nn.Module):
             torch.tensor(np.asarray(y), dtype=torch.long),
         )
         train_loader = DataLoader(train_data, batch_size=self.batch_size, shuffle=True)
+        self.train_loss_history = []
 
         for epoch in range(self.max_epoch):
             total_loss = 0.0
@@ -64,6 +65,8 @@ class Method_MLP(method, nn.Module):
                 optimizer.step()
                 total_loss += train_loss.item() * y_batch.size(0)
 
+            mean_loss = total_loss / len(train_data)
+            self.train_loss_history.append(float(mean_loss))
             if epoch % 5 == 0 or epoch == self.max_epoch - 1:
                 with torch.no_grad():
                     train_pred = self.test(X)
@@ -71,7 +74,6 @@ class Method_MLP(method, nn.Module):
                     'true_y': np.asarray(y),
                     'pred_y': train_pred.numpy(),
                 }
-                mean_loss = total_loss / len(train_data)
                 train_metrics = accuracy_evaluator.evaluate()
                 print(
                     'Epoch:', epoch + 1,

@@ -18,9 +18,8 @@ class Method_MLP(method, nn.Module):
     # it defines the max rounds to train the model
     max_epoch = 20
     # it defines the learning rate for gradient descent based optimizer for model learning
-    learning_rate = 3e-4
+    learning_rate = 1e-3
     batch_size = 128
-    dropout_rate = 0.2
 
     # it defines the the MLP model architecture, e.g.,
     # how many layers, size of variables in each layer, activation function, etc.
@@ -34,7 +33,6 @@ class Method_MLP(method, nn.Module):
         self.fc_layer_3 = nn.Linear(128, 10)
         # check here for nn.ReLU doc: https://pytorch.org/docs/stable/generated/torch.nn.ReLU.html
         self.activation_func_1 = nn.ReLU()
-        self.dropout = nn.Dropout(p=self.dropout_rate)
 
     # it defines the forward propagation function for input x
     # this function will calculate the output layer by layer
@@ -42,16 +40,14 @@ class Method_MLP(method, nn.Module):
     def forward(self, x):
         '''Forward propagation'''
         h = self.activation_func_1(self.fc_layer_1(x))
-        h = self.dropout(h)
         h = self.activation_func_1(self.fc_layer_2(h))
-        h = self.dropout(h)
         return self.fc_layer_3(h)
 
     # backward error propagation will be implemented by pytorch automatically
     # so we don't need to define the error backpropagation function here
 
     def fit(self, X, y):
-        optimizer = torch.optim.AdamW(self.parameters(), lr=self.learning_rate)
+        optimizer = torch.optim.Adam(self.parameters(), lr=self.learning_rate)
         loss_function = nn.CrossEntropyLoss()
         accuracy_evaluator = Evaluate_Accuracy('training evaluator', '')
         self.train_loss_history = []

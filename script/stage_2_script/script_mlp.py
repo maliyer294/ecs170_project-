@@ -14,7 +14,7 @@ from local_code.stage_2_code.Training_Loss_Plotter import save_training_loss_plo
 PROJECT_ROOT = Path(__file__).resolve().parents[2]
 DATA_FOLDER = PROJECT_ROOT / 'data' / 'stage_2_data'
 RESULT_FOLDER = PROJECT_ROOT / 'result' / 'stage_2_result'
-EXPERIMENT_TAG = 'adamw_lr3e-4_dropout0.2'
+EXPERIMENT_TAG = 'adam_lr1e-3_no_dropout'
 
 
 if __name__ == '__main__':

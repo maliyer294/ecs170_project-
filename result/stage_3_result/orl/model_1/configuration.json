@@ -1,0 +1,48 @@
+{
+  "dataset": "ORL",
+  "model_id": "model_1",
+  "input_shape": [
+    3,
+    112,
+    92
+  ],
+  "convolution_layers": [
+    {
+      "out_channels": 16,
+      "kernel_size": 3,
+      "stride": 1,
+      "padding": 1,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    },
+    {
+      "out_channels": 32,
+      "kernel_size": 3,
+      "stride": 1,
+      "padding": 1,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    },
+    {
+      "out_channels": 64,
+      "kernel_size": 3,
+      "stride": 1,
+      "padding": 1,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    }
+  ],
+  "final_pooling": "AvgPool2d(kernel_size=2, stride=2)",
+  "flattened_features": 2240,
+  "hidden_layer": {
+    "units": 128,
+    "activation": "ReLU"
+  },
+  "dropout_rate": 0.5,
+  "output_classes": 40,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "loss_function": "CrossEntropyLoss",
+  "epochs": 20,
+  "batch_size": 128
+}

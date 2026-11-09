@@ -1,0 +1,44 @@
+{
+  "dataset": "MNIST",
+  "model_id": "model_4",
+  "input_shape": [
+    1,
+    28,
+    28
+  ],
+  "depth": 2,
+  "convolution_layers": [
+    {
+      "in_channels": 1,
+      "out_channels": 32,
+      "kernel_size": 3,
+      "stride": 1,
+      "padding": 1,
+      "activation": "ReLU",
+      "pooling": "AveragePool2d(kernel_size=2, stride=2)"
+    },
+    {
+      "in_channels": 32,
+      "out_channels": 64,
+      "kernel_size": 3,
+      "stride": 1,
+      "padding": 1,
+      "activation": "ReLU",
+      "pooling": "AveragePool2d(kernel_size=2, stride=2)"
+    }
+  ],
+  "pooling_layer": "average",
+  "flattened_features": 3136,
+  "hidden_layer": {
+    "units": 64,
+    "activation": "ReLU"
+  },
+  "dropout_rate": 0.4,
+  "output_classes": 10,
+  "optimizer": "SGD",
+  "optimizer_momentum": 0.9,
+  "learning_rate": 0.01,
+  "loss_function": "NLLLoss",
+  "epochs": 20,
+  "batch_size": 128
+}

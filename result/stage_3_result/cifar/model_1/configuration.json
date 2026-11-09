@@ -1,0 +1,53 @@
+{
+  "dataset": "CIFAR",
+  "model_id": "model_1",
+  "input_shape": [
+    3,
+    32,
+    32
+  ],
+  "depth": 3,
+  "convolution_layers": [
+    {
+      "in_channels": 3,
+      "out_channels": 32,
+      "kernel_size": 3,
+      "stride": 1,
+      "padding": 1,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    },
+    {
+      "in_channels": 32,
+      "out_channels": 64,
+      "kernel_size": 3,
+      "stride": 1,
+      "padding": 1,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    },
+    {
+      "in_channels": 64,
+      "out_channels": 128,
+      "kernel_size": 3,
+      "stride": 1,
+      "padding": 1,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    }
+  ],
+  "pooling_layer": "max",
+  "flattened_features": 2048,
+  "hidden_layer": {
+    "units": 128,
+    "activation": "ReLU"
+  },
+  "dropout_rate": 0.3,
+  "output_classes": 10,
+  "optimizer": "Adam",
+  "optimizer_momentum": null,
+  "learning_rate": 0.001,
+  "loss_function": "CrossEntropyLoss",
+  "epochs": 20,
+  "batch_size": 128
+}

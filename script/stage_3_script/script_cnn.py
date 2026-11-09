@@ -145,9 +145,15 @@ def save_results(dataset_name, model, predictions):
 def run_experiment(dataset_name, model_number='1'):
     loader_class, model_class = EXPERIMENTS[dataset_name]
     model_id = f'model_{model_number}'
-    if dataset_name != 'ORL' and model_number != '1':
+    supported_models = {
+        'ORL': {'1', '2', '3'},
+        'MNIST': {'1', '2', '3', '4'},
+        'CIFAR': {'1', '2', '3', '4'},
+    }
+    if model_number not in supported_models[dataset_name]:
+        supported = ', '.join(sorted(supported_models[dataset_name]))
         raise ValueError(
-            'Models 2 and 3 are currently implemented for ORL only.'
+            f'{dataset_name} supports model configuration(s): {supported}'
         )
 
     random.seed(2)
@@ -159,7 +165,7 @@ def run_experiment(dataset_name, model_number='1'):
     loaded_data = loader_class().load()
     model = (
         model_class(model_id=model_id)
-        if dataset_name == 'ORL'
+        if dataset_name in ('ORL', 'MNIST', 'CIFAR')
         else model_class()
     )
     model.data = loaded_data
@@ -179,13 +185,26 @@ def main():
     )
     parser.add_argument(
         '--model',
-        choices=('1', '2', '3'),
+        choices=('1', '2', '3', '4'),
         default='1',
-        help='Model configuration number; ORL currently supports models 1, 2, and 3.',
+        help=(
+            'Model configuration number; MNIST and CIFAR support 1-4, '
+            'and ORL supports 1-3.'
+        ),
     )
     args = parser.parse_args()
-    if args.model != '1' and args.dataset != 'ORL':
-        parser.error('Models 2 and 3 are currently implemented for ORL only.')
+    supported_models = {
+        'ORL': {'1', '2', '3'},
+        'MNIST': {'1', '2', '3', '4'},
+        'CIFAR': {'1', '2', '3', '4'},
+    }
+    if args.dataset != 'ALL' and args.model not in supported_models[args.dataset]:
+        supported = ', '.join(sorted(supported_models[args.dataset]))
+        parser.error(
+            f'{args.dataset} supports model configuration(s): {supported}.'
+        )
+    if args.dataset == 'ALL' and args.model != '1':
+        parser.error('Use --model 1 with --dataset ALL.')
     datasets = EXPERIMENTS if args.dataset == 'ALL' else (args.dataset,)
     for dataset_name in datasets:
         print(f'\n=== Running {dataset_name} CNN model {args.model} ===')

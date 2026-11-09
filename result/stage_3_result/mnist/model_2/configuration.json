@@ -1,0 +1,53 @@
+{
+  "dataset": "MNIST",
+  "model_id": "model_2",
+  "input_shape": [
+    1,
+    28,
+    28
+  ],
+  "depth": 3,
+  "convolution_layers": [
+    {
+      "in_channels": 1,
+      "out_channels": 32,
+      "kernel_size": 5,
+      "stride": 1,
+      "padding": 2,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    },
+    {
+      "in_channels": 32,
+      "out_channels": 64,
+      "kernel_size": 5,
+      "stride": 1,
+      "padding": 2,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    },
+    {
+      "in_channels": 64,
+      "out_channels": 128,
+      "kernel_size": 5,
+      "stride": 1,
+      "padding": 2,
+      "activation": "ReLU",
+      "pooling": "MaxPool2d(kernel_size=2, stride=2)"
+    }
+  ],
+  "pooling_layer": "max",
+  "flattened_features": 1152,
+  "hidden_layer": {
+    "units": 256,
+    "activation": "ReLU"
+  },
+  "dropout_rate": 0.25,
+  "output_classes": 10,
+  "optimizer": "Adam",
+  "optimizer_momentum": null,
+  "learning_rate": 0.001,
+  "loss_function": "CrossEntropyLoss",
+  "epochs": 25,
+  "batch_size": 128
+}

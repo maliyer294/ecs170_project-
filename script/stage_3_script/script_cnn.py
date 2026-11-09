@@ -146,7 +146,7 @@ def run_experiment(dataset_name, model_number='1'):
     loader_class, model_class = EXPERIMENTS[dataset_name]
     model_id = f'model_{model_number}'
     supported_models = {
-        'ORL': {'1', '2', '3'},
+        'ORL': {'1', '2', '3', '4'},
         'MNIST': {'1', '2', '3', '4'},
         'CIFAR': {'1', '2', '3', '4'},
     }
@@ -188,13 +188,12 @@ def main():
         choices=('1', '2', '3', '4'),
         default='1',
         help=(
-            'Model configuration number; MNIST and CIFAR support 1-4, '
-            'and ORL supports 1-3.'
+            'Model configuration number; ORL, MNIST, and CIFAR support 1-4.'
         ),
     )
     args = parser.parse_args()
     supported_models = {
-        'ORL': {'1', '2', '3'},
+        'ORL': {'1', '2', '3', '4'},
         'MNIST': {'1', '2', '3', '4'},
         'CIFAR': {'1', '2', '3', '4'},
     }

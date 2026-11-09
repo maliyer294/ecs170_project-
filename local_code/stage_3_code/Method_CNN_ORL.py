@@ -5,9 +5,10 @@ from local_code.stage_3_code.Method_CNN_Base import Method_CNN_Base
 
 class Method_CNN_ORL(Method_CNN_Base):
     def __init__(self, model_id='model_1'):
-        if model_id not in ('model_1', 'model_2', 'model_3'):
+        if model_id not in ('model_1', 'model_2', 'model_3', 'model_4'):
             raise ValueError(
-                "model_id must be 'model_1', 'model_2', or 'model_3'"
+                "model_id must be 'model_1', 'model_2', 'model_3', or "
+                "'model_4'"
             )
 
         model_name = model_id.replace('_', ' ')
@@ -76,6 +77,9 @@ class Method_CNN_ORL(Method_CNN_Base):
             self.optimizer_name = 'SGD'
             self.optimizer_momentum = 0.9
             self.loss_function_name = 'NLLLoss'
+        elif model_id == 'model_4':
+            hidden_units = 256
+            self.dropout_rate = 0.3
         else:
             hidden_units = 128
 

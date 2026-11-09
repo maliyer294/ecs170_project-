@@ -1,6 +1,6 @@
 {
   "dataset": "ORL",
-  "model_id": "model_3",
+  "model_id": "model_4",
   "input_shape": [
     3,
     112,
@@ -35,6 +35,7 @@
   "dropout_rate": 0.3,
   "output_classes": 40,
   "optimizer": "Adam",
+  "optimizer_momentum": null,
   "learning_rate": 0.001,
   "loss_function": "CrossEntropyLoss",
   "epochs": 20,

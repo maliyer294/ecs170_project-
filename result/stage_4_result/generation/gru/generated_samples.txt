@@ -1,0 +1,66 @@
+GRU generated jokes (greedy = most likely word each step, sampled = temperature 0.8); text is lowercased by the tokenizer
+
+[train prompt] how do you
+  original : How do you think the unthinkable? With an itheburg.
+  greedy   : how do you make a tissue? a stick
+  sampled  : how do you know hitler? a unique - similar
+
+[train prompt] what did the
+  original : What did the closed can say to the half opened can? YOU'RE BEING UNCANNY!
+  greedy   : what did the fish say to the other? i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't
+  sampled  : what did the picture say to the other? nice belt!
+
+[train prompt] want to hear
+  original : Want to hear a clean Joke? Johnny took a bath with bubbles. Want to hear a dirty one? Bubbles is a man
+  greedy   : want to hear a joke about the other day? he had a bar.............................
+  sampled  : want to hear a joke about science in a dirty joke? it.
+
+[train prompt] what electronic device
+  original : What electronic device leaves behind a lot of broken glass? A PC, seeing how they typically run on Windows!
+  greedy   : what electronic device favorite meal? a stick
+  sampled  : what electronic device leaves and a game for a high with 9 - rex? sir - me! what did the famous call say to the other? "
+
+[train prompt] says she :
+  original : Says she: "Say something soft and sweet" Says he: "Marshmallow."
+  greedy   : says she: what do you call a cow with no legs? nobody knows.
+  sampled  : says she: " it'll only the man that look with the mud. as a living...
+
+[heldout prompt] what did aged
+  original : What did aged mother cheddar say to her son the day of school photos? Looking sharp.
+  greedy   : what did aged say to the other? i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know
+  sampled  : what did aged say when he was a bar for your mouth armies armies?
+
+[heldout prompt] where do snowmen
+  original : Where do snowmen dance? At the snowball!
+  greedy   : where do snowmen have a party? a stick
+  sampled  : where do snowmen wear to eat? a terrible - most!
+
+[heldout prompt] did you hear
+  original : Did you hear about the guy who invented a knife that can cut four loaves of bread at once? He's calling it the "Four Loaf Cleaver."
+  greedy   : did you hear about the kidnapping who was the problem with the nobel prize? he was a little bit.
+  sampled  : did you hear about the black who couldn't finish deep the candy? nothing it
+
+[heldout prompt] what do you
+  original : What do you call 99 bunnies walking forward and they take one step backwards? A receding hare line.
+  greedy   : what do you call a cow with no legs? a stick
+  sampled  : what do you call a cow with no eyes? a poor.
+
+[heldout prompt] did you hear
+  original : Did you hear the one about the three eggs? Too Bad.
+  greedy   : did you hear about the kidnapping who was the problem with the nobel prize? he was a little bit.
+  sampled  : did you hear about the air? they were having him in a stop come with.
+
+[custom prompt] what did the
+  original : (none: custom prompt)
+  greedy   : what did the fish say to the other? i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't
+  sampled  : what did the 8 say to the other? cherry you!
+
+[custom prompt] my dog is
+  original : (none: custom prompt)
+  greedy   : my dog is a lot of my first...................................
+  sampled  : my dog is a hat with no body.
+
+[custom prompt] the professor said
+  original : (none: custom prompt)
+  greedy   : the professor said, i don't know why are you.................................
+  sampled  : the professor said to the other side of his beak was that much, " i don't know why are playing dumb. "

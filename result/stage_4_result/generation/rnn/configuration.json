@@ -1,0 +1,31 @@
+{
+  "task": "jokes next-word generation",
+  "rnn_type": "RNN",
+  "seed": 0,
+  "device": "mps",
+  "max_epochs": 40,
+  "best_epoch": 16,
+  "early_stopping_patience": 5,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 32,
+  "grad_clip_norm": 5.0,
+  "loss_function": "CrossEntropyLoss",
+  "embed_dim": 128,
+  "hidden_dim": 256,
+  "dropout": 0.3,
+  "vocab_size": 1649,
+  "vocab_min_freq": 2,
+  "duplicate_jokes_removed_before_split": 13,
+  "split": {
+    "train": 1287,
+    "val": 161,
+    "test": 161
+  },
+  "sampling_temperature": 0.8,
+  "max_new_tokens": 40,
+  "model_selection": "weights from the epoch with the lowest validation loss",
+  "training_time_sec": 22.69132423400879,
+  "torch_version": "2.11.0",
+  "num_parameters": 733681
+}

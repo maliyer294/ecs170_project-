@@ -1,0 +1,23 @@
+{
+  "task": "IMDb binary sentiment classification",
+  "rnn_type": "LSTM",
+  "seed": 0,
+  "device": "mps",
+  "epochs": 10,
+  "optimizer": "Adam",
+  "learning_rate": 0.001,
+  "batch_size": 64,
+  "grad_clip_norm": 5.0,
+  "loss_function": "CrossEntropyLoss",
+  "embed_dim": 64,
+  "hidden_dim": 128,
+  "vocab_size": 20002,
+  "max_len": 300,
+  "truncation": "keep last max_len tokens",
+  "embeddings": "randomly initialised, trained from scratch",
+  "train_size": 25000,
+  "test_size": 25000,
+  "training_time_sec": 1050.7783827781677,
+  "torch_version": "2.11.0",
+  "num_parameters": 1379714
+}

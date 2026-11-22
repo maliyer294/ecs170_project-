@@ -1,0 +1,66 @@
+RNN generated jokes (greedy = most likely word each step, sampled = temperature 0.8); text is lowercased by the tokenizer
+
+[train prompt] how do you
+  original : How do you think the unthinkable? With an itheburg.
+  greedy   : how do you get when you cross a vest? a - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  sampled  : how do you know & gt; nacho move at least ( as - yarn? because it's a small medium brother;.
+
+[train prompt] what did the
+  original : What did the closed can say to the half opened can? YOU'RE BEING UNCANNY!
+  greedy   : what did the fish say when it hit the wall? dam
+  sampled  : what did the apple say to the other smoking? he was the tomato - - - - -.
+
+[train prompt] want to hear
+  original : Want to hear a clean Joke? Johnny took a bath with bubbles. Want to hear a dirty one? Bubbles is a man
+  greedy   : want to hear a joke about pizza? a stick
+  sampled  : want to hear a joke about science from a little boogie... and says to cheer getting up and says, " oh, " my my of music.
+
+[train prompt] what electronic device
+  original : What electronic device leaves behind a lot of broken glass? A PC, seeing how they typically run on Windows!
+  greedy   : what electronic device favorite drink? a - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  sampled  : what electronic device leaves say to the other? " i think " says, " their me and what did the famous call say to the other? "
+
+[train prompt] says she :
+  original : Says she: "Say something soft and sweet" Says he: "Marshmallow."
+  greedy   : says she: " what do you call a cow with no legs? because it was a little boogie.
+  sampled  : says she: " what do you call a dog with no a leg? a
+
+[heldout prompt] what did aged
+  original : What did aged mother cheddar say to her son the day of school photos? Looking sharp.
+  greedy   : what did aged say to the other? "
+  sampled  : what did aged say when his have self? their country!
+
+[heldout prompt] where do snowmen
+  original : Where do snowmen dance? At the snowball!
+  greedy   : where do snowmen have a tree? a - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+  sampled  : where do snowmen wear to eat? a pool table.
+
+[heldout prompt] did you hear
+  original : Did you hear about the guy who invented a knife that can cut four loaves of bread at once? He's calling it the "Four Loaf Cleaver."
+  greedy   : did you hear about the ointment who was the wall? because he was a little boogie.
+  sampled  : did you hear about the black and famous his cows? because it held it
+
+[heldout prompt] what do you
+  original : What do you call 99 bunnies walking forward and they take one step backwards? A receding hare line.
+  greedy   : what do you call a cow with no legs? because he was a little boogie.
+  sampled  : what do you call a cow with no eyes? a buccaneer.
+
+[heldout prompt] did you hear
+  original : Did you hear the one about the three eggs? Too Bad.
+  greedy   : did you hear about the ointment who was the wall? because he was a little boogie.
+  sampled  : did you hear about the bald? they were having a vest.
+
+[custom prompt] what did the
+  original : (none: custom prompt)
+  greedy   : what did the fish say when it hit the wall? dam
+  sampled  : what did the dog say when it? a cherry of one - my friend.
+
+[custom prompt] my dog is
+  original : (none: custom prompt)
+  greedy   : my dog is a little bit.....................................
+  sampled  : my dog is a hat with no body and juliet.
+
+[custom prompt] the professor said
+  original : (none: custom prompt)
+  greedy   : the professor said, " i don't know why don't serve the other day.............................
+  sampled  : the professor said it: what do you get on the dog who's a beer? at a hotel owned.

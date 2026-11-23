@@ -8,6 +8,7 @@ Stage 4 (tasks 4-4 / 4-5): joke generation from three starting words with RNN, L
 import argparse
 import csv
 import json
+import re
 from collections import Counter
 from pathlib import Path
 
@@ -23,15 +24,26 @@ MODELS = ('rnn', 'lstm', 'gru')
 CUSTOM_PROMPTS = ('what did the', 'my dog is', 'the professor said')  # not taken from a specific joke
 SAMPLING_TEMPERATURE = 0.8
 PROMPT_WORDS = 3
+WORD_TOKEN = re.compile(r"[a-z0-9']+")  # a word, as opposed to a punctuation token
 
 
 def build_prompts(data):
-    '''Same prompts for every architecture: first 3 tokens of 5 training jokes, 5 test jokes, plus custom ones.'''
+    '''Same prompts for every architecture: the first three WORDS of 5 training jokes and 5 test jokes,
+    plus custom ones. Jokes whose first three tokens include punctuation are skipped, and every prompt is distinct.'''
+    used = set(CUSTOM_PROMPTS)
     prompts = []
     for group, split in (('train', 'train'), ('heldout', 'test')):
-        for text, tokens in list(zip(data[split]['text'], data[split]['tokens']))[:5]:
-            prompts.append({'group': group, 'prompt': ' '.join(tokens[:PROMPT_WORDS]), 'original': text,
-                            'original_tokens': tokens})
+        chosen = 0
+        for text, tokens in zip(data[split]['text'], data[split]['tokens']):
+            first = tokens[:PROMPT_WORDS]
+            prompt = ' '.join(first)
+            if len(first) < PROMPT_WORDS or not all(WORD_TOKEN.fullmatch(t) for t in first) or prompt in used:
+                continue
+            used.add(prompt)
+            prompts.append({'group': group, 'prompt': prompt, 'original': text, 'original_tokens': tokens})
+            chosen += 1
+            if chosen == 5:
+                break
     prompts += [{'group': 'custom', 'prompt': p, 'original': None, 'original_tokens': None} for p in CUSTOM_PROMPTS]
     return prompts
 

@@ -1,6 +1,6 @@
 split,metric,value
-val,loss,3.60678278053347
-val,perplexity,36.8473160136953
+val,loss,3.606782782967865
+val,perplexity,36.84731610339623
 val,num_tokens,3134
 val,num_known_tokens,2609
 val,unk_target_rate,0.16751754945756225

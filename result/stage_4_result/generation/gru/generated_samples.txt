@@ -5,25 +5,25 @@ GRU generated jokes (greedy = most likely word each step, sampled = temperature 
   greedy   : how do you make a tissue? a stick
   sampled  : how do you know hitler? a unique - similar
 
-[train prompt] what did the
-  original : What did the closed can say to the half opened can? YOU'RE BEING UNCANNY!
-  greedy   : what did the fish say to the other? i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't know, i don't
-  sampled  : what did the picture say to the other? nice belt!
-
 [train prompt] want to hear
   original : Want to hear a clean Joke? Johnny took a bath with bubbles. Want to hear a dirty one? Bubbles is a man
   greedy   : want to hear a joke about the other day? he had a bar.............................
-  sampled  : want to hear a joke about science in a dirty joke? it.
+  sampled  : want to hear a joke about and a smoking can? a table... " hey! "
 
 [train prompt] what electronic device
   original : What electronic device leaves behind a lot of broken glass? A PC, seeing how they typically run on Windows!
   greedy   : what electronic device favorite meal? a stick
-  sampled  : what electronic device leaves and a game for a high with 9 - rex? sir - me! what did the famous call say to the other? "
+  sampled  : what electronic device leaves cats most his letter? a little ceiling.
 
-[train prompt] says she :
-  original : Says she: "Say something soft and sweet" Says he: "Marshmallow."
-  greedy   : says she: what do you call a cow with no legs? nobody knows.
-  sampled  : says she: " it'll only the man that look with the mud. as a living...
+[train prompt] i the shell
+  original : I the shell off a snail yesterday... you'd think it would move faster, but it was really kinda sluggish.
+  greedy   : i the shell of a time of a time..................................
+  sampled  : i the shell of my pizza appendix... i think i like know... poor might.
+
+[train prompt] why does a
+  original : Why does a chicken coupe only have two doors? If it had four it'd be a chicken sedan!
+  greedy   : why does a chicken cross the road? because it was a little meteor.
+  sampled  : why does a skeleton it'll only in the side? because it was a tv.
 
 [heldout prompt] what did aged
   original : What did aged mother cheddar say to her son the day of school photos? Looking sharp.
@@ -45,10 +45,10 @@ GRU generated jokes (greedy = most likely word each step, sampled = temperature 
   greedy   : what do you call a cow with no legs? a stick
   sampled  : what do you call a cow with no eyes? a poor.
 
-[heldout prompt] did you hear
-  original : Did you hear the one about the three eggs? Too Bad.
-  greedy   : did you hear about the kidnapping who was the problem with the nobel prize? he was a little bit.
-  sampled  : did you hear about the air? they were having him in a stop come with.
+[heldout prompt] why did the
+  original : Why did the spider land on the keyboard? She wanted a new website.
+  greedy   : why did the chicken cross the road? to get to the other side.
+  sampled  : why did the bald want to the car? because it was a stop come with.
 
 [custom prompt] what did the
   original : (none: custom prompt)

@@ -25,7 +25,7 @@
   "sampling_temperature": 0.8,
   "max_new_tokens": 40,
   "model_selection": "weights from the epoch with the lowest validation loss",
-  "training_time_sec": 23.137449026107788,
+  "training_time_sec": 25.969850063323975,
   "torch_version": "2.11.0",
   "num_parameters": 1030129
 }
